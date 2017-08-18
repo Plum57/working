@@ -1,0 +1,22 @@
+#rm(list=ls(all = TRUE))
+library(tm)
+library(stringr)
+
+
+DAC <- readPDF(control=list(text="-layout"))(elem=list(uri="/home/rintra2/Matrix/DAC.pdf"), language="en")
+
+testingdac <-lapply(DAC, as.character) #This prints the document
+empty_lines = grepl('^\\s*$', testingdac[[1]])
+testingdac <- testingdac[[1]][!empty_lines]
+testdac <- grep("Employment Record Owner", testingdac, perl = TRUE)
+
+
+
+testlist <- data.frame(matrix(employment))
+testlist[,2] <- testlist[,1]+1
+testlist[,3] <- testlist[,1]+2
+testlist[,4] <- testlist[,1]+3
+testlist[,5] <- testlist[,1]+4
+testlist <- as.vector(t(testlist))
+testingdac[[1]][testlist]
+
